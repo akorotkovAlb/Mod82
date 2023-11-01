@@ -10,6 +10,7 @@ import java.io.IOException;
 
 @WebFilter(value = "/*")
 public class AuthFilter extends HttpFilter {
+
     @Override
     protected void doFilter(HttpServletRequest req,
                             HttpServletResponse resp,

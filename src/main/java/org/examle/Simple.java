@@ -61,7 +61,7 @@ public class Simple extends HttpServlet {
 //        }
 
 //        //TODO add refresh header to response (MDM)
-//        response.setHeader("Refresh", "5");
+//        response.setHeader("Refresh", "3");
 //        out.write("<p>${dateTime}</p>"
 //                .replace("${dateTime}", LocalDateTime.now()
 //                        .format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss"))));
@@ -74,7 +74,7 @@ public class Simple extends HttpServlet {
 
     // TODO work with POST body form.html
     @Override
-    protected void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -90,8 +90,8 @@ public class Simple extends HttpServlet {
                     .replace("${value}", value));
         }
 
-//        //TODO for work with JSON format
-//        if(!request.getHeader("content-type").equals("application/json")) {
+        //TODO for work with JSON format
+        if(!request.getHeader("content-type").equals("application/json")) {
 
         //TODO for work with x-www-form-urlencoded
         Map<String, String[]> queryParams = request.getParameterMap();
@@ -101,14 +101,14 @@ public class Simple extends HttpServlet {
                     .replace("${value}", Arrays.toString(value)));
         });
 
-//        } else {
-//            //TODO for work with JSON format
-//            String body = request.getReader().lines().collect(Collectors.joining("\n"));
-//            User user = new ObjectMapper().readValue(body, User.class);
-//            out.print("<p>Body parameter converted to user with ${firstName} and ${lastName}</p>"
-//                    .replace("${firstName}", user.getFirstName())
-//                    .replace("${lastName}", user.getLastName()));
-//        }
+        } else {
+            //TODO for work with JSON format
+            String body = request.getReader().lines().collect(Collectors.joining("\n"));
+            User user = new ObjectMapper().readValue(body, User.class);
+            out.print("<p>Body parameter converted to user with ${firstName} and ${lastName}</p>"
+                    .replace("${firstName}", user.getFirstName())
+                    .replace("${lastName}", user.getLastName()));
+        }
 
 
         out.print("</body></html>");
