@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 
 // for creating war file -> compiler:compile -> war:war
-@WebServlet(value = "/Simple")
+@WebServlet(value = "/simple")
 public class Simple extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +46,7 @@ public class Simple extends HttpServlet {
 //        //TODO add localDateTime to response
 //        out.write("<p>${dateTime}</p>"
 //                .replace("${dateTime}", LocalDateTime.now()
-//                        .format(DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss"))));
+//                        .format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))));
 
         // -------------------------------------
 
